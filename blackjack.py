@@ -23,3 +23,26 @@ class Card:
                     return "Q"
                 case 13:
                     return "K"
+class Player:
+    cards = []
+    def __init__(self):
+        self.cards.append(Card())
+        self.cards.append(Card())
+    def hit(self):
+        self.cards.append(Card())
+    def getTotal(self):
+        total: int = 0
+        aces: int = 0
+        for i in self.cards:
+            if inrange(i.value, 2, 10):
+                total = total + i.value
+            else if inrange(i.value, 11, 13):
+                total = total + 10
+            else if i.value == 1:
+                aces = aces + 1
+        if aces > 0:
+            for _ in range(aces):
+                if (total + 11) > 21:
+                    total = total + 1
+                else:
+                    total = total + 11
