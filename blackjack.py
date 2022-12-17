@@ -31,6 +31,8 @@ class Card:
                     return "K"
 class Player:
     cards = []
+    index: int = None
+    qualified: bool = True
     def __init__(self):
         self.cards.append(Card())
         self.cards.append(Card())
@@ -66,4 +68,27 @@ else:
 
 players = []
 for i in range(playercount):
-    players.append(Player())
+    players.append(Player(i + 1))
+
+for player in players:
+    loop: bool = True
+    while loop:
+        br: bool = False
+        msg = "Player " + str(player.index) + ": "
+        for c in player.cards:
+            msg = msg + c.getDisplayName() + " "
+        print(msg)
+        choice = input("Hit [q], Stand [e]: ")
+        switch choice:
+            case "q":
+                player.hit()
+            case "e":
+                loop = False
+        if len(player.cards) == 2 and isBJ(player.getTotal()):
+            print("BLACKJACK!")
+            player.qualified = False
+            loop = false
+        if isBusted(player.getTotal()):
+            print("BUST!")
+            player.qualified = False
+            loop = false
