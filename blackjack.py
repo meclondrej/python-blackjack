@@ -63,3 +63,7 @@ if len(sys.argv) >= 2:
         exit()
 else:
     playercount = 1
+
+players = []
+for i in range(playercount):
+    players.append(Player())
