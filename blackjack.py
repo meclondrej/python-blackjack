@@ -55,6 +55,16 @@ class Player:
                     total = total + 1
                 else:
                     total = total + 11
+class Dealer(Player):
+    def __init__(self):
+        self.cards.append(Card())
+    def evaluateDealer(self):
+        self.cards.append(Card())
+        while not isBusted(self.getTotal()):
+            if self.getTotal() > 17:
+                self.hit()
+            else:
+                break
 
 playercount: int = None
 if len(sys.argv) >= 2:
