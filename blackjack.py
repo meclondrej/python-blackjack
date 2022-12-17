@@ -34,9 +34,10 @@ class Player:
     cards = []
     index: int = None
     qualified: bool = True
-    def __init__(self):
+    def __init__(self, toindex: int):
         self.cards.append(Card())
         self.cards.append(Card())
+        self.index = toindex
     def hit(self):
         self.cards.append(Card())
     def getTotal(self):
