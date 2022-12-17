@@ -45,9 +45,9 @@ class Player:
         for i in self.cards:
             if inrange(i.value, 2, 10):
                 total = total + i.value
-            else if inrange(i.value, 11, 13):
+            elif inrange(i.value, 11, 13):
                 total = total + 10
-            else if i.value == 1:
+            elif i.value == 1:
                 aces = aces + 1
         if aces > 0:
             for _ in range(aces):
@@ -112,7 +112,7 @@ if isBusted(dealer.getTotal()):
     for player in players:
         if not player.qualified: continue
         print("Player " + str(player.index) + " WON!")
-else if len(dealer.cards) == 2 and isBJ(dealer.getTotal()):
+elif len(dealer.cards) == 2 and isBJ(dealer.getTotal()):
     print("Dealer BLACKJACKED!")
     for player in players:
         if not player.qualified: continue
