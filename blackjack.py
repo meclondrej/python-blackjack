@@ -5,6 +5,12 @@ def inrange(t: int, x: int, y: int):
         return True
     else:
         return False
+def isBusted(x: int):
+    if x > 21: return True
+    else: return False
+def isBJ(x: int):
+    if x == 21: return True
+    else: return False
 
 class Card:
     value: int = None
