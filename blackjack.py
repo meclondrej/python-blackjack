@@ -56,6 +56,7 @@ class Player:
                     total = total + 1
                 else:
                     total = total + 11
+        return total
 class Dealer(Player):
     def __init__(self):
         self.cards.append(Card())
