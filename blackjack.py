@@ -21,7 +21,7 @@ class Card:
         if inrange(self.value, 2, 10):
             return str(self.value)
         else:
-            switch self.value:
+            match self.value:
                 case 1:
                     return "A"
                 case 11:
@@ -92,7 +92,7 @@ for player in players:
             msg = msg + c.getDisplayName() + " "
         print(msg)
         choice = input("Hit [q], Stand [e]: ")
-        switch choice:
+        match choice:
             case "q":
                 player.hit()
             case "e":
