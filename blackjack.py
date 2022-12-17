@@ -1,4 +1,5 @@
 import random
+import sys
 
 def inrange(t: int, x: int, y: int):
     if t >= x and t <= y:
