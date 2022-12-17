@@ -52,3 +52,14 @@ class Player:
                     total = total + 1
                 else:
                     total = total + 11
+
+playercount: int = None
+if len(sys.argv) >= 2:
+    try:
+        playercount = int(sys.argv[1])
+    except Exception as e:
+        print("Invalid arguments. Additional info: ")
+        print(e)
+        exit()
+else:
+    playercount = 1
