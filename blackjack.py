@@ -77,6 +77,8 @@ if len(sys.argv) >= 2:
 else:
     playercount = 1
 
+dealer = Dealer()
+print("Dealer's first card: " + dealer.cards[0].getDisplayName())
 players = []
 for i in range(playercount):
     players.append(Player(i + 1))
@@ -103,3 +105,24 @@ for player in players:
             print("BUST!")
             player.qualified = False
             loop = false
+
+dealer.evaluateDealer()
+if isBusted(dealer.getTotal()):
+    print("Dealer BUSTED!")
+    for player in players:
+        if not player.qualified: continue
+        print("Player " + str(player.index) + " WON!")
+else if len(dealer.cards) == 2 and isBJ(dealer.getTotal()):
+    print("Dealer BLACKJACKED!")
+    for player in players:
+        if not player.qualified: continue
+        print("Player " + str(player.index) + " LOST!")
+else:
+    for player in players:
+        if not player.qualified: continue
+        if player.getTotal() == dealer.getTotal():
+            print("Player " + str(player.index) + " PUSHED!")
+        if player.getTotal() > dealer.getTotal():
+            print("Player " + str(player.index) + " WON!")
+        if player.getTotal() < dealer.getTotal():
+            print("Player " + str(player.index) + " LOST!")
