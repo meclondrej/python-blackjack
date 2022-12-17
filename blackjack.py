@@ -102,11 +102,11 @@ for player in players:
         if len(player.cards) == 2 and isBJ(player.getTotal()):
             print("BLACKJACK!")
             player.qualified = False
-            loop = false
+            loop = False
         if isBusted(player.getTotal()):
             print("BUST!")
             player.qualified = False
-            loop = false
+            loop = False
 
 dealer.evaluateDealer()
 if isBusted(dealer.getTotal()):
