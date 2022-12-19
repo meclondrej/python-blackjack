@@ -84,7 +84,6 @@ for i in range(playercount):
 for player in players:
     loop: bool = True
     while loop:
-        br: bool = False
         msg = "Player " + str(player.index) + ": "
         for c in player.cards:
             msg = msg + c.getDisplayName() + " "
