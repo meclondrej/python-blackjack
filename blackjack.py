@@ -105,6 +105,10 @@ for player in players:
             loop = False
 
 dealer.evaluateDealer()
+dealermsg = "Dealer's hand: "
+for c in dealer.cards:
+    dealermsg = dealermsg + c.getDisplayName() + " "
+print(dealermsg)
 if isBusted(dealer.getTotal()):
     print("Dealer BUSTED!")
     for player in players:
