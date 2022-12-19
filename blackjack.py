@@ -95,10 +95,18 @@ for player in players:
             case "e":
                 loop = False
         if len(player.cards) == 2 and isBJ(player.getTotal()):
+            msg = "Player " + str(player.index) + ": "
+            for c in player.cards:
+                msg = msg + c.getDisplayName() + " "
+            print(msg)
             print("BLACKJACK!")
             player.qualified = False
             loop = False
         if isBusted(player.getTotal()):
+            msg = "Player " + str(player.index) + ": "
+            for c in player.cards:
+                msg = msg + c.getDisplayName() + " "
+            print(msg)
             print("BUST!")
             player.qualified = False
             loop = False
