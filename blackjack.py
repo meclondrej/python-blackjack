@@ -76,7 +76,7 @@ if len(sys.argv) >= 2:
 else:
     playercount = 1
 
-dealer = Dealer()
+dealer = Dealer(0)
 print("Dealer's first card: " + dealer.cards[0].getDisplayName())
 players = []
 for i in range(playercount):
