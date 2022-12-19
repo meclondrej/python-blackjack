@@ -15,7 +15,6 @@ def isBJ(x: int):
 
 class Card:
     def __init__(self):
-        value: int = None
         self.value = random.randint(1, 13)
     def getDisplayName(self):
         if inrange(self.value, 2, 10):
@@ -32,9 +31,9 @@ class Card:
                     return "K"
 class Player:
     def __init__(self, toindex: int):
-        cards = []
-        index: int = None
-        qualified: bool = True
+        self.cards = []
+        self.index: int = None
+        self.qualified: bool = True
         self.cards.append(Card())
         self.cards.append(Card())
         self.index = toindex
