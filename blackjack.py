@@ -14,8 +14,8 @@ def isBJ(x: int):
     else: return False
 
 class Card:
-    value: int = None
     def __init__(self):
+        value: int = None
         self.value = random.randint(1, 13)
     def getDisplayName(self):
         if inrange(self.value, 2, 10):
@@ -31,10 +31,10 @@ class Card:
                 case 13:
                     return "K"
 class Player:
-    cards = []
-    index: int = None
-    qualified: bool = True
     def __init__(self, toindex: int):
+        cards = []
+        index: int = None
+        qualified: bool = True
         self.cards.append(Card())
         self.cards.append(Card())
         self.index = toindex
@@ -58,10 +58,7 @@ class Player:
                     total = total + 11
         return total
 class Dealer(Player):
-    def __init__(self):
-        self.cards.append(Card())
     def evaluateDealer(self):
-        self.cards.append(Card())
         while not isBusted(self.getTotal()):
             if self.getTotal() > 17:
                 self.hit()
